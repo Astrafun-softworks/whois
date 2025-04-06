@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const net = require("net");
+const cors = require("cors");
 
 const app = express();
 const PORT = 3000;
@@ -13,6 +14,8 @@ const fallbackContacts = {
   "tk": "abuse@freenom.com",
   "gq": "abuse@freenom.com"
 };
+
+app.use(cors());
 
 function queryWhois(server, domain) {
   return new Promise((resolve, reject) => {
